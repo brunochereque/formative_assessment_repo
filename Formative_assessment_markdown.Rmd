@@ -40,10 +40,10 @@ Now we want to create a second function that drops missing rows.
 ```{r}
 
 # Let´s create a function to drop rows with missing values
-drop_missing_values <- function(data) {
+drop_missing_values <- function(data_new) {
   
   # Drop rows with any missing values
-  transformed_data <- na.omit(data)
+  transformed_data <- na.omit(data_new)
   
   return(transformed_data)
 }
