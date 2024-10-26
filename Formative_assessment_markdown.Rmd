@@ -35,3 +35,23 @@ missing_values
 ```
 The table below shows how many missing variables we have per variable. We can easiy see that the variable Ozone has 37 missing observations and Solar.R has 7 missing observations. The rest of the available variables do not have missing observations.
 
+Now we want to create a second function that drops missing rows.
+
+```{r}
+
+# Let´s create a function to drop rows with missing values
+drop_missing_values <- function(data) {
+  
+  # Drop rows with any missing values
+  transformed_data <- na.omit(data)
+  
+  return(transformed_data)
+}
+
+# Apply the function to the airquality dataset
+airquality <- drop_missing_values(airquality)
+missing_values <- count_missing_values(airquality)
+missing_values
+
+```
+As we can see, after we apply this second function we are removing all rows with missing values.
