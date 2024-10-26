@@ -394,10 +394,10 @@ observations and Solar.R has 7 missing observations. The rest of the
 available variables do not have missing observations.</p>
 <p>Now we want to create a second function that drops missing rows.</p>
 <pre class="r"><code># Let´s create a function to drop rows with missing values
-drop_missing_values &lt;- function(data) {
+drop_missing_values &lt;- function(data_new) {
   
   # Drop rows with any missing values
-  transformed_data &lt;- na.omit(data)
+  transformed_data &lt;- na.omit(data_new)
   
   return(transformed_data)
 }
