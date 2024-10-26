@@ -1,0 +1,37 @@
+---
+title: "Formative_Assessment_markdown"
+author: "CN 51034"
+date: "2024-10-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data Transformation
+
+This is R Markdown document works with the data set airquality which contains airquality measurements in New York from may to September in 1973. Here we define a function called count_missing_values which, as the names says, counts missing values in each column in the dataset.
+
+```{r}
+# First we load the data set
+data("airquality")
+
+# We see the first 5 rows of the data
+head(airquality)
+
+# We define a function to help us count how many missing values we have in each column of the dataset
+
+# Define a function to count missing values in each column
+count_missing_values <- function(data) {
+  transformed_data <- sapply(data, function(x) sum(is.na(x)))
+  return(transformed_data)
+}
+
+# Finally we apply the function to the data set airquality
+missing_values <- count_missing_values(airquality)
+missing_values
+
+```
+The table below shows how many missing variables we have per variable. We can easiy see that the variable Ozone has 37 missing observations and Solar.R has 7 missing observations. The rest of the available variables do not have missing observations.
+
