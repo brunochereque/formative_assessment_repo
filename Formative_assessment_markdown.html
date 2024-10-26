@@ -392,6 +392,24 @@ missing_values</code></pre>
 variable. We can easiy see that the variable Ozone has 37 missing
 observations and Solar.R has 7 missing observations. The rest of the
 available variables do not have missing observations.</p>
+<p>Now we want to create a second function that drops missing rows.</p>
+<pre class="r"><code># Let´s create a function to drop rows with missing values
+drop_missing_values &lt;- function(data) {
+  
+  # Drop rows with any missing values
+  transformed_data &lt;- na.omit(data)
+  
+  return(transformed_data)
+}
+
+# Apply the function to the airquality dataset
+airquality &lt;- drop_missing_values(airquality)
+missing_values &lt;- count_missing_values(airquality)
+missing_values</code></pre>
+<pre><code>##   Ozone Solar.R    Wind    Temp   Month     Day 
+##       0       0       0       0       0       0</code></pre>
+<p>As we can see, after we apply this second function we are removing
+all rows with missing values.</p>
 </div>
 
 
